@@ -65,7 +65,7 @@ public class EventPlanner {
 
     public String listEventDetails(){
         Integer[] detailValues = allEvents.get(0).getEventDetails();
-        String eventDetails = "Number of Guests: " + detailValues[0] + "\nMeal Service: " + mealDescription.get(detailValues[1]) + "\nBeverage Service: " + beverageDescription.get(detailValues[2]) + "\nEntertainment: " + entertainmentDescription.get(detailValues[3]) + "\nDiscount Rate: " + discountDescription.get(detailValues[4]);
+        String eventDetails = "Number of Guests: " + detailValues[0] + "\nMeal Service: " + mealDescription.get(detailValues[1]) + "\nBeverage Service: " + beverageDescription.get(detailValues[2]) + "\nEntertainment: " + entertainmentDescription.get(detailValues[3]) + "\nDiscount Rate: " + discountDescription.get(detailValues[4]) + "\nTotal Event Cost: " + allEvents.get(0).getTotalCost();
         return eventDetails;
     }
 }

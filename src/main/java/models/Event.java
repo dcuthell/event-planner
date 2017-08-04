@@ -85,11 +85,12 @@ public class Event {
     }
 
     public Double getDiscountMultiplier(Integer discountType){
-        return this.getGuestCost()*discountMultiplier.get(discountType);
+        return discountMultiplier.get(discountType);
     }
 
     public Double getTotalCost(){
         return (this.getMealCost(this.mealType) + this.getBeverageCost(this.beverageType) + this.getEntertainmentCost(this.entertainmentType)) * this.getDiscountMultiplier(this.discountType);
+
     }
 
     public Integer[] getEventDetails(){
