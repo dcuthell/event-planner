@@ -20,12 +20,17 @@ public class App {
             try{
                 userInput = Integer.parseInt(bufferedReader.readLine());
                 if(userInput.equals(1)){
+                    String eventName = "";
                     Integer numberOfGuests = 0;
                     Integer mealType = 0;
                     Integer beverageType = 0;
                     Integer entertainmentType = 0;
                     Integer discountType = 0;
                     System.out.println("Create a New Custom Event");
+                    while(eventName.equals("")){
+                        System.out.println("Please enter a name for the event");
+                        eventName = bufferedReader.readLine();
+                    }
                     while(numberOfGuests <= 0){
                         System.out.println("How many people do you expect to attend this event?");
                         numberOfGuests = Integer.parseInt(bufferedReader.readLine());
@@ -68,16 +73,21 @@ public class App {
                             System.out.println("Coders need to party too! 15% off!");
                         }
                     }
-                    System.out.println(eventPlanner.addEvent(numberOfGuests, mealType, beverageType, entertainmentType, discountType));
+                    System.out.println(eventPlanner.addEvent(eventName, numberOfGuests, mealType, beverageType, entertainmentType, discountType));
                     System.out.println("Event Added!");
                 }else if(userInput.equals(2)){
                     System.out.println("Create a New Random Event");
                     Random myRandomGenerator = new Random();
+                    String eventName = "";
                     Integer numberOfGuests = 0;
                     Integer mealType = 1 + myRandomGenerator.nextInt(6);
                     Integer beverageType = 1 + myRandomGenerator.nextInt(3);
                     Integer entertainmentType = 1 + myRandomGenerator.nextInt(6);
                     Integer discountType = 0;
+                    while(eventName.equals("")){
+                        System.out.println("Please enter a name for the event");
+                        eventName = bufferedReader.readLine();
+                    }
                     while(numberOfGuests <= 0){
                         System.out.println("How many people do you expect to attend this event?");
                         numberOfGuests = Integer.parseInt(bufferedReader.readLine());
@@ -105,26 +115,31 @@ public class App {
                             System.out.println("Coders need to party too! 5% off!");
                         }
                     }
-                    System.out.println(eventPlanner.addEvent(numberOfGuests, mealType, beverageType, entertainmentType, discountType));
+                    System.out.println(eventPlanner.addEvent(eventName, numberOfGuests, mealType, beverageType, entertainmentType, discountType));
                     System.out.println("Random Event Added!");
                 }else if(userInput.equals(3)){
                     System.out.println("Create a New Prebuilt Event");
                     Integer eventType = 0;
+                    String eventName = "";
+                    while(eventName.equals("")){
+                        System.out.println("Please enter a name for the event");
+                        eventName = bufferedReader.readLine();
+                    }
                     while(eventType <= 0){
                         System.out.println("Please select from the following events:\n1  -  Wedding\n2   -  Birthday Party\n3  -  Reunion");
                         eventType = Integer.parseInt(bufferedReader.readLine());
                     }
                     if(eventType.equals(1)){
                         System.out.println("Enjoy your wedding with a 20% discount!");
-                        System.out.println(eventPlanner.addEvent(75, 6, 3, 6, 5));
+                        System.out.println(eventPlanner.addEvent(eventName,75, 6, 3, 6, 5));
                     }
                     if(eventType.equals(2)){
                         System.out.println("Celebrate your Birthday with a 15% discount!");
-                        System.out.println(eventPlanner.addEvent(15, 1, 2, 1, 4));
+                        System.out.println(eventPlanner.addEvent(eventName, 15, 1, 2, 1, 4));
                     }
                     if(eventType.equals(3)){
                         System.out.println("Have a rocking reunion with 10% off!");
-                        System.out.println(eventPlanner.addEvent(100, 5, 2, 5, 3));
+                        System.out.println(eventPlanner.addEvent(eventName, 100, 5, 2, 5, 3));
                     }
                 }else if(userInput.equals(0)){
                     System.out.println("Goodbye!");

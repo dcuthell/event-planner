@@ -7,7 +7,8 @@ import java.util.Map;
 
 public class EventPlanner {
     private static DecimalFormat df = new DecimalFormat("#0.00");
-    ArrayList<Event> allEvents = new ArrayList<>();
+//    ArrayList<Event> allEvents = new ArrayList<>();
+    Map<String, Event> allEvents = new HashMap<>();
     Map<Integer, String> mealDescription = new HashMap();
     Map<Integer, String> beverageDescription = new HashMap();
     Map<Integer, String> entertainmentDescription = new HashMap();
@@ -37,10 +38,10 @@ public class EventPlanner {
         discountDescription.put(6, "25% Off");
     }
 
-    public String addEvent(Integer numberOfGuests, Integer mealType, Integer beverageType, Integer entertainmentType, Integer discountType){
+    public String addEvent(String eventName, Integer numberOfGuests, Integer mealType, Integer beverageType, Integer entertainmentType, Integer discountType){
         Event newEvent = new Event(numberOfGuests, mealType, beverageType, entertainmentType, discountType);
         String output = this.listEventDetails(newEvent);
-        allEvents.add(newEvent);
+        allEvents.put(eventName, newEvent);
         return output;
     }
 
