@@ -73,6 +73,7 @@ public class App {
                             System.out.println("Coders need to party too! 15% off!");
                         }
                     }
+                    Integer confirmInteger = 0;
                     System.out.println(eventPlanner.addEvent(eventName, numberOfGuests, mealType, beverageType, entertainmentType, discountType));
                     System.out.println("Event Added!");
                 }else if(userInput.equals(2)){
