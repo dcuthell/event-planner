@@ -1,10 +1,12 @@
 package models;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class EventPlanner {
+    private static DecimalFormat df = new DecimalFormat("#0.00");
     ArrayList<Event> allEvents = new ArrayList<>();
     Map<Integer, String> mealDescription = new HashMap();
     Map<Integer, String> beverageDescription = new HashMap();
@@ -18,9 +20,9 @@ public class EventPlanner {
         mealDescription.put(4, "Fancy Lunch");
         mealDescription.put(5, "Simple Dinner");
         mealDescription.put(6, "Fancy Dinner");
-        beverageDescription.put(1, "Non-Alcoholic Beverages Only");
-        beverageDescription.put(2, "Cheap Beer and Well Drinks");
-        beverageDescription.put(3, "Craft Brews and Top-Shelf Booze");
+        beverageDescription.put(1, "Non-Alcoholic Beverages Only :(");
+        beverageDescription.put(2, "Cheap Beer, Boxed Wine, and Well Drinks");
+        beverageDescription.put(3, "Craft Beers, Champagne, and Top-Shelf Booze");
         entertainmentDescription.put(1, "Generic Pop Music Playlist on PA System");
         entertainmentDescription.put(2, "Stand-up Comedian");
         entertainmentDescription.put(3, "DJ with Laser Light Show");
@@ -68,7 +70,7 @@ public class EventPlanner {
 
     public String listEventDetails(Event thisEvent){
         Integer[] detailValues = thisEvent.getEventDetails();
-        String eventDetails = "Number of Guests: " + detailValues[0] + "\nMeal Service: " + mealDescription.get(detailValues[1]) + "\nBeverage Service: " + beverageDescription.get(detailValues[2]) + "\nEntertainment: " + entertainmentDescription.get(detailValues[3]) + "\nDiscount Rate: " + discountDescription.get(detailValues[4]) + "\nTotal Event Cost: " + thisEvent.getTotalCost() + "\nCost per Guest: " + (thisEvent.getTotalCost()/detailValues[0]);
+        String eventDetails = "Number of Guests: " + detailValues[0] + "\nMeal Service: " + mealDescription.get(detailValues[1]) + "\nBeverage Service: " + beverageDescription.get(detailValues[2]) + "\nEntertainment: " + entertainmentDescription.get(detailValues[3]) + "\nDiscount Rate: " + discountDescription.get(detailValues[4]) + "\nTotal Event Cost: $" + df.format(Double.valueOf(thisEvent.getTotalCost())) + "\nCost per Guest: $" + df.format(Double.valueOf((thisEvent.getTotalCost()/detailValues[0])));
         return eventDetails;
     }
 }

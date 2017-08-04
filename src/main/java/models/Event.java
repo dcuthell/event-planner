@@ -61,9 +61,9 @@ public class Event {
     public Double getGuestCost(){
         Double guestCost;
         Integer partySize;
-        if(numberOfGuests <= 21){
+        if(numberOfGuests <= 34){
             partySize = 1;
-        }else if(numberOfGuests <= 55){
+        }else if(numberOfGuests <= 89){
             partySize = 2;
         }else{
             partySize = 3;
