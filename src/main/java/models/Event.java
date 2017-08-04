@@ -5,13 +5,21 @@ import java.util.Map;
 
 public class Event {
     Map<Integer, Double> partySizeMultiplier = new HashMap();
+    Integer numberOfGuests = 0;
+    Map<Integer, Double> mealCost = new HashMap();
 
-    Integer numberOfGuests;
+
 
     public Event(){
         partySizeMultiplier.put(1, 1.25);
         partySizeMultiplier.put(2, 1.0);
         partySizeMultiplier.put(3, 0.8);
+        mealCost.put(1, 5.00);
+        mealCost.put(2, 8.00);
+        mealCost.put(3, 13.00);
+        mealCost.put(4, 21.00);
+        mealCost.put(5, 34.00);
+        mealCost.put(6, 55.00);
     }
 
     //Getters and Setters
@@ -19,17 +27,9 @@ public class Event {
         return partySizeMultiplier.get(input);
     }
 
-    public Integer getNumberOfGuests() {
-        return numberOfGuests;
-    }
-
-    public void setNumberOfGuests(Integer numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
-    }
-
     public Double getGuestCost(){
-        Double guestCost = 0.00;
-        Integer partySize = 0;
+        Double guestCost;
+        Integer partySize;
         if(numberOfGuests <= 21){
             partySize = 1;
         }else if(numberOfGuests <= 55){
@@ -37,9 +37,18 @@ public class Event {
         }else{
             partySize = 3;
         }
-        guestCost += numberOfGuests*this.getPartySizeMultiplier(partySize);
+        guestCost = numberOfGuests*this.getPartySizeMultiplier(partySize);
         return guestCost;
     }
+
+    public Double getMealCost(Integer mealType){
+        return this.getGuestCost()*mealCost.get(mealType);
+
+    }
+
+
+
+
 
 
 }

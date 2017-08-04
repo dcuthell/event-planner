@@ -14,10 +14,9 @@ public class EventTest {
     }
 
     @Test
-    public void getGuestCost_getDoubleForInteger_Double(){
+    public void getGuestCost_getDouble_Double(){
         Event testEvent = new Event();
-        Integer testInteger = 1;
-        assertTrue(testEvent.getPartySizeMultiplier(testInteger) instanceof Double);
+        assertTrue(testEvent.getGuestCost() instanceof Double);
     }
 
 }
