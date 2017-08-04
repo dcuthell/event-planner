@@ -30,15 +30,18 @@ public class App {
                         numberOfGuests = Integer.parseInt(bufferedReader.readLine());
                     }
                     while(mealType.equals(0)){
-                        System.out.println("What type of meal service would you like?\n1  -  Light Snacks\n2  -  Hearty Snacks\n3  -  Simple Lunch\n4  -  Fancy Lunch\n5  -  Simple Dinner\n6  -  Fancy Dinner");
+                        System.out.println("What type of meal service would you like?");
+                        System.out.println(eventPlanner.listMeals());
                         mealType = Integer.parseInt(bufferedReader.readLine());
                     }
                     while(beverageType.equals(0)){
-                        System.out.println("What type of beverage service would you like?\n1  -  Non-Alcoholic Beverages Only\n2  -  Cheap Beer and Well Drinks\n3  -  Craft Brews and Top-Shelf Booze");
+                        System.out.println("What type of beverage service would you like?");
+                        System.out.println(eventPlanner.listBeverages());
                         beverageType = Integer.parseInt(bufferedReader.readLine());
                     }
                     while(entertainmentType.equals(0)){
-                        System.out.println("What type of entertainment would you like?\n1  -  Clown with Balloons\n2  -  Stand-up Comedian\n3  -  DJ with Laser Light Show\n4  -  Interpretive Dance Troupe\n5  -  Grateful Dead Cover Band\n6  -  Black-Tie Jazz Band");
+                        System.out.println("What type of entertainment would you like?");
+                        System.out.println(eventPlanner.listEntertainment());
                         entertainmentType = Integer.parseInt(bufferedReader.readLine());
                     }
                     while(discountType.equals(0)){
