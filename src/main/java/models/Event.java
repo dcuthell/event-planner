@@ -4,8 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Event {
-    Map<Integer, Double> partySizeMultiplier = new HashMap();
     Integer numberOfGuests = 0;
+    Integer mealType = 0;
+    Integer beverageType = 0;
+    Integer entertainmentType = 0;
+    Integer discountType = 0;
+
+    Map<Integer, Double> partySizeMultiplier = new HashMap();
     Map<Integer, Double> mealCost = new HashMap();
     Map<Integer, Double> beverageCost = new HashMap();
     Map<Integer, Double> entertainmentCost = new HashMap();
@@ -14,7 +19,13 @@ public class Event {
 
 
 
-    public Event(){
+    public Event(Integer numberOfGuests, Integer mealType, Integer beverageType, Integer entertainmentType, Integer discountType){
+        this.numberOfGuests = numberOfGuests;
+        this.mealType = mealType;
+        this.beverageType = beverageType;
+        this.entertainmentType = entertainmentType;
+        this.discountType = discountType;
+
         partySizeMultiplier.put(1, 1.25);
         partySizeMultiplier.put(2, 1.0);
         partySizeMultiplier.put(3, 0.8);
@@ -77,8 +88,8 @@ public class Event {
         return this.getGuestCost()*discountMultiplier.get(discountType);
     }
 
-    public Double getTotalCost(Integer mealType, Integer beverageType, Integer entertainmentType, Integer discountType){
-        return (this.getMealCost(mealType) + this.getBeverageCost(beverageType) + this.getEntertainmentCost(entertainmentType)) * this.getDiscountMultiplier(discountType);
+    public Double getTotalCost(){
+        return (this.getMealCost(this.mealType) + this.getBeverageCost(this.beverageType) + this.getEntertainmentCost(this.entertainmentType)) * this.getDiscountMultiplier(this.discountType);
     }
 
 
