@@ -44,12 +44,12 @@ public class Event {
         entertainmentCost.put(4, 21.00);
         entertainmentCost.put(5, 34.00);
         entertainmentCost.put(6, 55.00);
-        discountMultiplier.put(0, 1.00);
-        discountMultiplier.put(1, .95);
-        discountMultiplier.put(2, .90);
-        discountMultiplier.put(3, .85);
-        discountMultiplier.put(4, .80);
-        discountMultiplier.put(5, .75);
+        discountMultiplier.put(1, 1.00);
+        discountMultiplier.put(2, .95);
+        discountMultiplier.put(3, .90);
+        discountMultiplier.put(4, .85);
+        discountMultiplier.put(5, .80);
+        discountMultiplier.put(6, .75);
 
     }
 
