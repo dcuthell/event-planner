@@ -13,6 +13,7 @@ public class EventPlanner {
     Map<Integer, String> beverageDescription = new HashMap();
     Map<Integer, String> entertainmentDescription = new HashMap();
     Map<Integer, String> discountDescription = new HashMap();
+    ArrayList<String> allNames = new ArrayList();
 
     public EventPlanner(){
         mealDescription.put(1, "Light Snacks");
@@ -41,6 +42,7 @@ public class EventPlanner {
     public String addEvent(String eventName, Integer numberOfGuests, Integer mealType, Integer beverageType, Integer entertainmentType, Integer discountType){
         Event newEvent = new Event(numberOfGuests, mealType, beverageType, entertainmentType, discountType);
         String output = this.listEventDetails(newEvent);
+        allNames.add(eventName);
         allEvents.put(eventName, newEvent);
         return output;
     }
@@ -73,5 +75,23 @@ public class EventPlanner {
         Integer[] detailValues = thisEvent.getEventDetails();
         String eventDetails = "Number of Guests: " + detailValues[0] + "\nMeal Service: " + mealDescription.get(detailValues[1]) + "\nBeverage Service: " + beverageDescription.get(detailValues[2]) + "\nEntertainment: " + entertainmentDescription.get(detailValues[3]) + "\nDiscount Rate: " + discountDescription.get(detailValues[4]) + "\nTotal Event Cost: $" + df.format(Double.valueOf(thisEvent.getTotalCost())) + "\nCost per Guest: $" + df.format(Double.valueOf((thisEvent.getTotalCost()/detailValues[0])));
         return eventDetails;
+    }
+
+    public String listEventNames(){
+        String output = "";
+        for(String oneName: allNames){
+            output += oneName + "\n";
+        }
+        return output;
+    }
+
+    public String showEvent(String eventName){
+        Event thisEvent = allEvents.get(eventName);
+        if(thisEvent == null){
+            return "No such event!";
+        }else{
+            return listEventDetails(thisEvent);
+        }
+
     }
 }

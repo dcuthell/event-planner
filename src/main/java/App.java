@@ -16,7 +16,7 @@ public class App {
 
         while(programRunning){
             Integer userInput;
-            System.out.println("Please Select from the Following Menu Items:\n1  -  Create a New Event\n2  -  Create Random Event\n3  -  Create a Prebuilt Event\n0  -  Exit");
+            System.out.println("Please Select from the Following Menu Items:\n1  -  Create a New Event\n2  -  Create Random Event\n3  -  Create a Prebuilt Event\n4  -  Browse Events\n0  -  Exit");
             try{
                 userInput = Integer.parseInt(bufferedReader.readLine());
                 if(userInput.equals(1)){
@@ -141,6 +141,15 @@ public class App {
                         System.out.println("Have a rocking reunion with 10% off!");
                         System.out.println(eventPlanner.addEvent(eventName, 100, 5, 2, 5, 3));
                     }
+                }else if(userInput.equals(4)){
+                    String eventName = "";
+                    System.out.println("Browse Existing Events");
+                    System.out.println(eventPlanner.listEventNames());
+                    while(eventName.equals("")){
+                        System.out.println("Please the name of the event you wish to inspect");
+                        eventName = bufferedReader.readLine();
+                    }
+                    System.out.println(eventPlanner.showEvent(eventName));
                 }else if(userInput.equals(0)){
                     System.out.println("Goodbye!");
                     programRunning = false;
