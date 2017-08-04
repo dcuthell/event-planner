@@ -9,6 +9,7 @@ public class EventPlanner {
     Map<Integer, String> mealDescription = new HashMap();
     Map<Integer, String> beverageDescription = new HashMap();
     Map<Integer, String> entertainmentDescription = new HashMap();
+    Map<Integer, String> discountDescription = new HashMap();
 
     public EventPlanner(){
         mealDescription.put(1, "Light Snacks");
@@ -26,6 +27,12 @@ public class EventPlanner {
         entertainmentDescription.put(4, "Interpretive Dance Troupe");
         entertainmentDescription.put(5, "Grateful Dead Cover Band");
         entertainmentDescription.put(6, "Black-Tie Jazz Band");
+        discountDescription.put(1, "Standard Rate");
+        discountDescription.put(2, "5% Off");
+        discountDescription.put(3, "10% Off");
+        discountDescription.put(4, "15% Off");
+        discountDescription.put(5, "20% Off");
+        discountDescription.put(6, "25% Off");
     }
 
     public void addEvent(Integer numberOfGuests, Integer mealType, Integer beverageType, Integer entertainmentType, Integer discountType){
@@ -56,4 +63,9 @@ public class EventPlanner {
         return output;
     }
 
+    public String listEventDetails(){
+        Integer[] detailValues = allEvents.get(0).getEventDetails();
+        String eventDetails = "Number of Guests: " + detailValues[0] + "\nMeal Service: " + mealDescription.get(detailValues[1]) + "\nBeverage Service: " + beverageDescription.get(detailValues[2]) + "\nEntertainment: " + entertainmentDescription.get(detailValues[3]) + "\nDiscount Rate: " + discountDescription.get(detailValues[4]);
+        return eventDetails;
+    }
 }

@@ -50,6 +50,7 @@ public class App {
                     }
                     eventPlanner.addEvent(numberOfGuests, mealType, beverageType, entertainmentType, discountType);
                     System.out.println("Event Added!");
+                    System.out.println(eventPlanner.listEventDetails());
 
 
                 }else if(userInput.equals(0)){

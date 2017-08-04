@@ -92,6 +92,11 @@ public class Event {
         return (this.getMealCost(this.mealType) + this.getBeverageCost(this.beverageType) + this.getEntertainmentCost(this.entertainmentType)) * this.getDiscountMultiplier(this.discountType);
     }
 
+    public Integer[] getEventDetails(){
+        Integer[] output = {numberOfGuests, mealType, beverageType, entertainmentType, discountType};
+        return output;
+    }
+
 
 
 
