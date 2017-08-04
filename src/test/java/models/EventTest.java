@@ -25,4 +25,11 @@ public class EventTest {
         Integer input = 1;
         assertTrue(testEvent.getMealCost(input) instanceof Double);
     }
+
+    @Test
+    public void getBeverageCost_getDoublewithIntegerInput_Double(){
+        Event testEvent = new Event();
+        Integer input = 1;
+        assertTrue(testEvent.getBeverageCost(input) instanceof Double);
+    }
 }

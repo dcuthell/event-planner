@@ -7,6 +7,7 @@ public class Event {
     Map<Integer, Double> partySizeMultiplier = new HashMap();
     Integer numberOfGuests = 0;
     Map<Integer, Double> mealCost = new HashMap();
+    Map<Integer, Double> beverageCost = new HashMap();
 
 
 
@@ -20,6 +21,10 @@ public class Event {
         mealCost.put(4, 21.00);
         mealCost.put(5, 34.00);
         mealCost.put(6, 55.00);
+        beverageCost.put(1, 8.00);
+        beverageCost.put(2, 21.00);
+        beverageCost.put(3, 55.00);
+
     }
 
     //Getters and Setters
@@ -44,6 +49,14 @@ public class Event {
     public Double getMealCost(Integer mealType){
         return this.getGuestCost()*mealCost.get(mealType);
     }
+
+    public Double getBeverageCost(Integer beverageType){
+        return this.getGuestCost()*beverageCost.get(beverageType);
+    }
+
+
+
+
 
 
 
