@@ -3,6 +3,7 @@ import models.EventPlanner;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Random;
 
 public class App {
     public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class App {
 
         while(programRunning){
             Integer userInput;
-            System.out.println("Please Select from the Following Menu Items:\n1  -  Create a New Event\n0  -  Exit");
+            System.out.println("Please Select from the Following Menu Items:\n1  -  Create a New Event\n2  -  Create Random Event\n0  -  Exit");
             try{
                 userInput = Integer.parseInt(bufferedReader.readLine());
                 if(userInput.equals(1)){
@@ -50,12 +51,25 @@ public class App {
                     }
                     System.out.println(eventPlanner.addEvent(numberOfGuests, mealType, beverageType, entertainmentType, discountType));
                     System.out.println("Event Added!");
-
-
-
+                }else if(userInput.equals(2)){
+                    System.out.println("Create a New Random Event");
+                    Random myRandomGenerator = new Random();
+                    Integer numberOfGuests = 0;
+                    Integer mealType = 1 + myRandomGenerator.nextInt(6);
+                    Integer beverageType = 1 + myRandomGenerator.nextInt(3);
+                    Integer entertainmentType = 1 + myRandomGenerator.nextInt(6);
+                    Integer discountType = 1;
+                    while(numberOfGuests <= 0){
+                        System.out.println("How many people do you expect to attend this event?");
+                        numberOfGuests = Integer.parseInt(bufferedReader.readLine());
+                    }
+                    System.out.println(eventPlanner.addEvent(numberOfGuests, mealType, beverageType, entertainmentType, discountType));
+                    System.out.println("Random Event Added!");
                 }else if(userInput.equals(0)){
                     System.out.println("Goodbye!");
                     programRunning = false;
+                }else{
+                    System.out.println("Invalid User Input");
                 }
             }
             catch(IOException e){
