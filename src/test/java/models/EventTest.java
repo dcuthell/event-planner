@@ -46,4 +46,11 @@ public class EventTest {
         Integer input = 1;
         assertTrue(testEvent.getDiscountMultiplier(input) instanceof Double);
     }
+
+    @Test
+    public void getTotalCost_getDoubleWithFourIntegerInput_Double(){
+        Event testEvent = new Event();
+        Integer[] input = {1,1,1,1};
+        assertTrue(testEvent.getTotalCost(input[0], input[1], input[2], input[3]) instanceof Double);
+    }
 }

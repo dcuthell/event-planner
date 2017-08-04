@@ -33,14 +33,12 @@ public class Event {
         entertainmentCost.put(4, 21.00);
         entertainmentCost.put(5, 34.00);
         entertainmentCost.put(6, 55.00);
-        discountMultiplier.put(1, .90);
-        discountMultiplier.put(2, .80);
-        discountMultiplier.put(3, .75);
-        discountMultiplier.put(4, .70);
-        discountMultiplier.put(5, .65);
-        discountMultiplier.put(6, .60);
-        discountMultiplier.put(7, .55);
-        discountMultiplier.put(8, .50);
+        discountMultiplier.put(0, 1.00);
+        discountMultiplier.put(1, .95);
+        discountMultiplier.put(2, .90);
+        discountMultiplier.put(3, .85);
+        discountMultiplier.put(4, .80);
+        discountMultiplier.put(5, .75);
 
     }
 
@@ -77,6 +75,10 @@ public class Event {
 
     public Double getDiscountMultiplier(Integer discountType){
         return this.getGuestCost()*discountMultiplier.get(discountType);
+    }
+
+    public Double getTotalCost(Integer mealType, Integer beverageType, Integer entertainmentType, Integer discountType){
+        return (this.getMealCost(mealType) + this.getBeverageCost(beverageType) + this.getEntertainmentCost(entertainmentType)) * this.getDiscountMultiplier(discountType);
     }
 
 
