@@ -9,6 +9,8 @@ public class Event {
     Map<Integer, Double> mealCost = new HashMap();
     Map<Integer, Double> beverageCost = new HashMap();
     Map<Integer, Double> entertainmentCost = new HashMap();
+    Map<Integer, Double> discountMultiplier = new HashMap();
+
 
 
 
@@ -31,6 +33,14 @@ public class Event {
         entertainmentCost.put(4, 21.00);
         entertainmentCost.put(5, 34.00);
         entertainmentCost.put(6, 55.00);
+        discountMultiplier.put(1, .90);
+        discountMultiplier.put(2, .80);
+        discountMultiplier.put(3, .75);
+        discountMultiplier.put(4, .70);
+        discountMultiplier.put(5, .65);
+        discountMultiplier.put(6, .60);
+        discountMultiplier.put(7, .55);
+        discountMultiplier.put(8, .50);
 
     }
 
@@ -63,6 +73,10 @@ public class Event {
 
     public Double getEntertainmentCost(Integer entertainmentType){
         return this.getGuestCost()*entertainmentCost.get(entertainmentType);
+    }
+
+    public Double getDiscountMultiplier(Integer discountType){
+        return this.getGuestCost()*discountMultiplier.get(discountType);
     }
 
 

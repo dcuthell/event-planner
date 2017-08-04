@@ -20,23 +20,30 @@ public class EventTest {
     }
 
     @Test
-    public void getMealCost_getDoublewithIntegerInput_Double(){
+    public void getMealCost_getDoubleWithIntegerInput_Double(){
         Event testEvent = new Event();
         Integer input = 1;
         assertTrue(testEvent.getMealCost(input) instanceof Double);
     }
 
     @Test
-    public void getBeverageCost_getDoublewithIntegerInput_Double(){
+    public void getBeverageCost_getDoubleWithIntegerInput_Double(){
         Event testEvent = new Event();
         Integer input = 1;
         assertTrue(testEvent.getBeverageCost(input) instanceof Double);
     }
 
     @Test
-    public void getEntertainmentCost_getDoublewithIntegerInput_Double(){
+    public void getEntertainmentCost_getDoubleWithIntegerInput_Double(){
         Event testEvent = new Event();
         Integer input = 1;
         assertTrue(testEvent.getEntertainmentCost(input) instanceof Double);
+    }
+
+    @Test
+    public void getDiscountMultiplier_getDoubleWithIntegerInput_Double(){
+        Event testEvent = new Event();
+        Integer input = 1;
+        assertTrue(testEvent.getDiscountMultiplier(input) instanceof Double);
     }
 }
