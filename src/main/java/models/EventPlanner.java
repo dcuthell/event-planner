@@ -35,8 +35,11 @@ public class EventPlanner {
         discountDescription.put(6, "25% Off");
     }
 
-    public void addEvent(Integer numberOfGuests, Integer mealType, Integer beverageType, Integer entertainmentType, Integer discountType){
-        allEvents.add(new Event(numberOfGuests, mealType, beverageType, entertainmentType, discountType));
+    public String addEvent(Integer numberOfGuests, Integer mealType, Integer beverageType, Integer entertainmentType, Integer discountType){
+        Event newEvent = new Event(numberOfGuests, mealType, beverageType, entertainmentType, discountType);
+        String output = this.listEventDetails(newEvent);
+        allEvents.add(newEvent);
+        return output;
     }
 
     public String listMeals(){
@@ -63,9 +66,9 @@ public class EventPlanner {
         return output;
     }
 
-    public String listEventDetails(){
-        Integer[] detailValues = allEvents.get(0).getEventDetails();
-        String eventDetails = "Number of Guests: " + detailValues[0] + "\nMeal Service: " + mealDescription.get(detailValues[1]) + "\nBeverage Service: " + beverageDescription.get(detailValues[2]) + "\nEntertainment: " + entertainmentDescription.get(detailValues[3]) + "\nDiscount Rate: " + discountDescription.get(detailValues[4]) + "\nTotal Event Cost: " + allEvents.get(0).getTotalCost();
+    public String listEventDetails(Event thisEvent){
+        Integer[] detailValues = thisEvent.getEventDetails();
+        String eventDetails = "Number of Guests: " + detailValues[0] + "\nMeal Service: " + mealDescription.get(detailValues[1]) + "\nBeverage Service: " + beverageDescription.get(detailValues[2]) + "\nEntertainment: " + entertainmentDescription.get(detailValues[3]) + "\nDiscount Rate: " + discountDescription.get(detailValues[4]) + "\nTotal Event Cost: " + thisEvent.getTotalCost();
         return eventDetails;
     }
 }

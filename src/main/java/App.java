@@ -25,32 +25,32 @@ public class App {
                     Integer entertainmentType = 0;
                     Integer discountType = 0;
                     System.out.println("Create a New Custom Event");
-                    while(numberOfGuests.equals(0)){
+                    while(numberOfGuests <= 0){
                         System.out.println("How many people do you expect to attend this event?");
                         numberOfGuests = Integer.parseInt(bufferedReader.readLine());
                     }
-                    while(mealType.equals(0)){
+                    while(mealType < 1 || 6 < mealType){
                         System.out.println("What type of meal service would you like?");
                         System.out.println(eventPlanner.listMeals());
                         mealType = Integer.parseInt(bufferedReader.readLine());
                     }
-                    while(beverageType.equals(0)){
+                    while(beverageType < 1 || 3 < beverageType){
                         System.out.println("What type of beverage service would you like?");
                         System.out.println(eventPlanner.listBeverages());
                         beverageType = Integer.parseInt(bufferedReader.readLine());
                     }
-                    while(entertainmentType.equals(0)){
+                    while(entertainmentType < 1 || 6 < entertainmentType){
                         System.out.println("What type of entertainment would you like?");
                         System.out.println(eventPlanner.listEntertainment());
                         entertainmentType = Integer.parseInt(bufferedReader.readLine());
                     }
-                    while(discountType.equals(0)){
+                    while(discountType < 1 || 6 < discountType){
                         System.out.println("Please Enter a Discount Code, or Enter 1 to Continue");
                         discountType = Integer.parseInt(bufferedReader.readLine());
                     }
-                    eventPlanner.addEvent(numberOfGuests, mealType, beverageType, entertainmentType, discountType);
+                    System.out.println(eventPlanner.addEvent(numberOfGuests, mealType, beverageType, entertainmentType, discountType));
                     System.out.println("Event Added!");
-                    System.out.println(eventPlanner.listEventDetails());
+
 
 
                 }else if(userInput.equals(0)){
