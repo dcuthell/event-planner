@@ -43,7 +43,6 @@ public class Event {
 
     public Double getMealCost(Integer mealType){
         return this.getGuestCost()*mealCost.get(mealType);
-
     }
 
 

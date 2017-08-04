@@ -19,4 +19,10 @@ public class EventTest {
         assertTrue(testEvent.getGuestCost() instanceof Double);
     }
 
+    @Test
+    public void getMealCost_getDoublewithIntegerInput_Double(){
+        Event testEvent = new Event();
+        Integer input = 1;
+        assertTrue(testEvent.getMealCost(input) instanceof Double);
+    }
 }
